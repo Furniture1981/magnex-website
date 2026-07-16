@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGNEX International | Bróker de Commodities B2B en Centroamérica</title>
+<meta name="description" content="MAGNEX International conecta compradores industriales en Panamá, Costa Rica, Colombia, Guatemala y República Dominicana directo con fábricas en Asia. Pintura industrial, aceite de palma, fertilizantes y acero. Opera con carta de crédito irrevocable — el banco paga, usted nunca adelanta dinero.">
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --navy-light: #14315c;
+    --navy-deep: #071527;
+    --gold: #c9a227;
+    --gold-light: #e0c463;
+    --gray: #5a6472;
+    --bg: #f7f8fa;
+    --border: #e6e9ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--navy); background: #fff; line-height: 1.6; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  header { background: var(--navy); color: #fff; padding: 18px 0; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+  header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.5px; }
+  .logo span { color: var(--gold); }
+  .tagline { font-size: 0.82rem; color: #c7d0dd; }
+  nav a { color: #fff; text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
+  nav a:hover, nav a:focus-visible { color: var(--gold); }
+
+  /* HERO with real port photography */
+  .hero {
+    position: relative;
+    color: #fff;
+    padding: 100px 0 88px;
+    text-align: left;
+    background-image:
+      linear-gradient(115deg, rgba(7,21,39,0.94) 0%, rgba(7,21,39,0.88) 38%, rgba(11,31,58,0.55) 100%),
+      url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero .container { max-width: 1120px; }
+  .hero-inner { max-width: 680px; }
+  .hero-eyebrow { display: inline-block; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.5); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 700; margin: 0 0 20px; }
+  .hero p { font-size: 1.12rem; color: #d7dde6; max-width: 600px; margin: 0 0 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; background: var(--gold); color: var(--navy-deep); font-weight: 700; padding: 14px 30px; border-radius: 6px; text-decoration: none; font-size: 1rem; border: 2px solid var(--gold); }
+  .btn:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 600; padding: 12px 28px; border-radius: 6px; text-decoration: none; }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  .trust-strip { background: var(--bg); padding: 26px 0; border-bottom: 1px solid var(--border); }
+  .trust-strip .container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; font-size: 0.92rem; color: var(--gray); }
+  .trust-strip strong { color: var(--navy); display: block; font-size: 1.15rem; }
+
+  section { padding: 72px 0; }
+  h2 { font-size: 1.85rem; text-align: center; margin-bottom: 12px; }
+  .subhead { text-align: center; color: var(--gray); max-width: 640px; margin: 0 auto 44px; }
+  .eyebrow-label { display: block; text-align: center; color: var(--gold); font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+
+  .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .card { border: 1px solid var(--border); border-radius: 10px; padding: 28px; background: #fff; }
+  .card .badge { display: inline-block; background: var(--bg); color: var(--navy-light); font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+  .card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 14px; }
+  .card .cta-link { font-weight: 600; color: var(--navy-light); text-decoration: none; font-size: 0.9rem; }
+  .card .cta-link:hover { text-decoration: underline; }
+
+  /* CÓMO FUNCIONA — centerpiece of trust */
+  .how { background: var(--bg); }
+  .how-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: start; margin-top: 44px; }
+  .how-photo { position: sticky; top: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(11,31,58,0.18); }
+  .how-photo img { width: 100%; height: 460px; object-fit: cover; }
+  .how-photo-caption { background: var(--navy); color: #d7dde6; font-size: 0.82rem; padding: 12px 18px; }
+
+  .mechanism-box { background: #fff; border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 24px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(11,31,58,0.06); }
+  .mechanism-box h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--navy); }
+  .mechanism-box p { color: var(--gray); font-size: 0.95rem; }
+  .mechanism-box strong { color: var(--navy); }
+
+  .steps-timeline { position: relative; padding-left: 44px; }
+  .steps-timeline::before { content: ""; position: absolute; left: 17px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .tstep { position: relative; padding-bottom: 30px; }
+  .tstep:last-child { padding-bottom: 0; }
+  .tstep .num { position: absolute; left: -44px; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; border: 3px solid var(--bg); }
+  .tstep.emphasis .num { background: var(--gold); color: var(--navy-deep); }
+  .tstep h4 { font-size: 1.02rem; margin-bottom: 5px; }
+  .tstep p { color: var(--gray); font-size: 0.92rem; }
+  .tstep.emphasis { background: #fff; border-radius: 8px; padding: 16px 18px; margin-left: -18px; box-shadow: 0 2px 10px rgba(11,31,58,0.08); }
+  .tstep.emphasis .num { left: -26px; }
+
+  @media (max-width: 860px) {
+    .how-grid { grid-template-columns: 1fr; }
+    .how-photo { position: static; }
+    .how-photo img { height: 260px; }
+  }
+
+  /* QUIÉN ESTÁ DETRÁS */
+  .who {
+    position: relative;
+    color: #fff;
+    background-image:
+      linear-gradient(120deg, rgba(7,21,39,0.93) 0%, rgba(11,31,58,0.9) 55%, rgba(11,31,58,0.75) 100%),
+      url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .who h2 { color: #fff; }
+  .who .subhead { color: #c7d0dd; }
+  .who-card { max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 36px 40px; backdrop-filter: blur(2px); }
+  .who-top { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+  .who-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); font-weight: 700; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
+  .who-name { font-size: 1.25rem; font-weight: 700; }
+  .who-role { color: var(--gold-light); font-size: 0.92rem; font-weight: 600; }
+  .who-card p { color: #d7dde6; font-size: 0.98rem; margin-bottom: 14px; }
+  .who-contact { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; font-size: 0.92rem; }
+  .who-contact a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; }
+  .who-contact a:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .cta-section { background: var(--navy); color: #fff; text-align: center; }
+  .cta-section h2 { color: #fff; }
+  .cta-section p { color: #c7d0dd; max-width: 560px; margin: 0 auto 28px; }
+
+  footer { background: #0a1830; color: #9aa5b5; padding: 40px 0; font-size: 0.9rem; }
+  footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  footer a { color: #c7d0dd; text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+  .footer-col h5 { color: #fff; margin-bottom: 10px; font-size: 0.95rem; }
+  .footer-col p, .footer-col a { display: block; margin-bottom: 6px; }
+  .footer-bottom { text-align: center; color: #5f6b80; font-size: 0.8rem; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  @media (max-width: 600px) {
+    nav { display: none; }
+    .hero { padding: 64px 0 52px; text-align: center; }
+    .hero-inner { max-width: 100%; }
+    .hero p { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .btn-outline { margin: 0; }
+    .who-card { padding: 28px 22px; }
+    .who-top { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div>
+      <div class="logo">MAGNEX <span>International</span></div>
+      <div class="tagline">Connecting Markets. Delivering Trust.</div>
+    </div>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#quienes-somos">Quién está detrás</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Bróker B2B sin inventario</span>
+      <h1>Compre commodities industriales directo de fábrica, sin adelantar un dólar</h1>
+      <p>MAGNEX International conecta empresas de Panamá, Costa Rica, Colombia, Guatemala y República Dominicana con fabricantes verificados en Asia. Toda operación se protege con carta de crédito irrevocable UCP 600: el dinero nunca pasa por nuestras manos, y el banco solo paga cuando el producto embarca.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="mailto:mgonzalez@magnexinternational.com">Solicitar cotización FOB</a>
+        <a class="btn-outline" href="https://wa.me/50765933059">WhatsApp directo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container">
+    <div><strong>0%</strong>Adelanto de dinero</div>
+    <div><strong>UCP 600</strong>Carta de crédito irrevocable</div>
+    <div><strong>5 países</strong>PA · CR · CO · GT · RD</div>
+    <div><strong>24–48h</strong>Respuesta a cotizaciones</div>
+  </div>
+</div>
+
+<section id="productos">
+  <div class="container">
+    <h2>Nuestros productos</h2>
+    <p class="subhead">Tres líneas de commodities con comisión sobre operación cerrada — usted negocia directo con el fabricante, nosotros garantizamos el proceso.</p>
+    <div class="products">
+      <div class="card">
+        <span class="badge">Producto ancla</span>
+        <h3>Pintura Industrial</h3>
+        <p>Pintura anticorrosiva e industrial directo de fábrica en Foshan, China. Precios FOB desde $2.00/kg, MOQ desde 10 kg. Ideal para constructoras, astilleros y mantenimiento industrial.</p>
+        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Pintura Industrial">Pedir cotización FOB →</a>
+      </div>
+      <div class="card">
+        <span class="badge">Contrato recurrente</span>
+        <h3>Aceite de Palma</h3>
+        <p>CPO y RBD certificado RSPO para industria alimentaria, jabonería, cosmética y biodiesel. Contratos de suministro mensual con trazabilidad de origen.</p>
+        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Aceite de Palma">Pedir cotización FOB →</a>
+      </div>
+      <div class="card">
+        <span class="badge">Operación de volumen</span>
+        <h3>Fertilizantes &amp; Acero Estructural</h3>
+        <p>Insumos para agroindustria y grandes constructoras. Volúmenes altos, precios competitivos, logística coordinada hasta puerto de destino.</p>
+        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Fertilizantes y Acero">Pedir cotización FOB →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="container">
+    <span class="eyebrow-label">El mecanismo, no promesas</span>
+    <h2>Por qué es imposible que le quedemos mal</h2>
+    <p class="subhead">En esta industria abundan los estafadores. Por eso el proceso no depende de confiar en nuestra palabra — depende de un instrumento bancario internacional que ya existe para esto.</p>
+
+    <div class="how-grid">
+      <div class="how-photo">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1000&q=80" alt="Buque portacontenedores cargando en puerto industrial, operación real de comercio exterior">
+        <div class="how-photo-caption">El banco solo libera el pago cuando el embarque está verificado — no antes.</div>
+      </div>
+
+      <div>
+        <div class="mechanism-box">
+          <h3>La garantía real: usted nunca nos paga a nosotros</h3>
+          <p>Su banco emite una <strong>Carta de Crédito irrevocable bajo las reglas UCP 600</strong> de la Cámara de Comercio Internacional. El dinero queda respaldado por su propio banco, no por MAGNEX. El proveedor solo cobra cuando presenta los documentos de embarque (bill of lading, factura, certificado de origen) que prueban que la mercancía ya salió hacia su puerto. <strong>Si no hay embarque verificado, no hay pago.</strong> Así de simple.</p>
+        </div>
+
+        <div class="steps-timeline">
+          <div class="tstep">
+            <div class="num">1</div>
+            <h4>Consulta</h4>
+            <p>Nos escribe con el volumen y la frecuencia que necesita.</p>
+          </div>
+          <div class="tstep">
+            <div class="num">2</div>
+            <h4>NCNDA</h4>
+            <p>Firmamos acuerdo de confidencialidad antes de revelar el proveedor de fábrica.</p>
+          </div>
+          <div class="tstep">
+            <div class="num">3</div>
+            <h4>Cotización FOB</h4>
+            <p>Le enviamos precio de fábrica más comisión MAGNEX, en 24–48 horas.</p>
+          </div>
+          <div class="tstep emphasis">
+            <div class="num">4</div>
+            <h4>Su banco abre la Carta de Crédito irrevocable (UCP 600)</h4>
+            <p>Usted no nos transfiere nada a nosotros. El instrumento queda en manos de su propio banco.</p>
+          </div>
+          <div class="tstep emphasis">
+            <div class="num">5</div>
+            <h4>Embarque verificado → el banco paga</h4>
+            <p>Solo cuando el proveedor demuestra con documentos que el producto embarcó, el banco libera el pago. MAGNEX cobra su comisión dentro de esa misma liquidación — nunca antes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="quienes-somos">
+  <div class="container">
+    <span class="eyebrow-label">Quién está detrás</span>
+    <h2>No es un "equipo" anónimo — es una persona con nombre y contacto directo</h2>
+    <p class="subhead">Cuando escribe a MAGNEX, le responde el fundador, no un departamento genérico.</p>
+    <div class="who-card">
+      <div class="who-top">
+        <div class="who-avatar">MG</div>
+        <div>
+          <div class="who-name">Miguel Angel González Remond</div>
+          <div class="who-role">Fundador &amp; CEO, MAGNEX International</div>
+        </div>
+      </div>
+      <p>Con base en Ciudad de Panamá, Miguel dirige personalmente cada operación: calificación del comprador, negociación con el proveedor, estructuración del FCO y seguimiento de la Carta de Crédito hasta el embarque. No hay intermediarios adicionales entre usted y quien firma el acuerdo.</p>
+      <div class="who-contact">
+        <a href="mailto:mgonzalez@magnexinternational.com">mgonzalez@magnexinternational.com</a>
+        <a href="https://wa.me/50765933059">WhatsApp +507 6593-3059</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Listo para cotizar?</h2>
+    <p>Respondemos consultas de compradores calificados en 24–48 horas.</p>
+    <a class="btn" href="mailto:mgonzalez@magnexinternational.com">Escribir por correo</a>
+    <a class="btn-outline" href="https://wa.me/50765933059">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="container">
+    <div class="footer-col">
+      <h5>MAGNEX International</h5>
+      <p>Bróker de commodities industriales</p>
+      <p>Ciudad de Panamá, Panamá</p>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="mailto:mgonzalez@magnexinternational.com">mgonzalez@magnexinternational.com</a>
+      <a href="https://wa.me/50765933059">WhatsApp +507 6593-3059</a>
+    </div>
+    <div class="footer-col">
+      <h5>Mercados</h5>
+      <p>Panamá · Costa Rica · Colombia</p>
+      <p>Guatemala · República Dominicana</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    MAGNEX International — Connecting Markets. Delivering Trust.
+  </div>
+</footer>
+
+</body>
+</html>
