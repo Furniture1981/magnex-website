@@ -18,17 +18,18 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--navy); background: #fff; line-height: 1.6; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--navy); background: #fff; line-height: 1.65; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   a { color: inherit; }
   img { max-width: 100%; display: block; }
   .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
 
   header { background: var(--navy); color: #fff; padding: 18px 0; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
   header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.5px; }
   .logo span { color: var(--gold); }
   .tagline { font-size: 0.82rem; color: #c7d0dd; }
-  nav a { color: #fff; text-decoration: none; margin-left: 24px; font-size: 0.95rem; }
+  nav a { color: #fff; text-decoration: none; margin-left: 24px; font-size: 0.95rem; transition: color 0.2s ease; }
   nav a:hover, nav a:focus-visible { color: var(--gold); }
 
   /* HERO with real port photography */
@@ -42,43 +43,54 @@
       url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1600&q=80');
     background-size: cover;
     background-position: center;
+    overflow: hidden;
   }
   .hero .container { max-width: 1120px; }
   .hero-inner { max-width: 680px; }
   .hero-eyebrow { display: inline-block; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.5); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 22px; }
-  .hero h1 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 700; margin: 0 0 20px; }
+  .hero h1 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 700; margin: 0 0 20px; letter-spacing: -0.3px; }
   .hero p { font-size: 1.12rem; color: #d7dde6; max-width: 600px; margin: 0 0 32px; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-block; background: var(--gold); color: var(--navy-deep); font-weight: 700; padding: 14px 30px; border-radius: 6px; text-decoration: none; font-size: 1rem; border: 2px solid var(--gold); }
-  .btn:hover { background: var(--gold-light); border-color: var(--gold-light); }
-  .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 600; padding: 12px 28px; border-radius: 6px; text-decoration: none; }
-  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .btn { display: inline-block; background: var(--gold); color: var(--navy-deep); font-weight: 700; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-size: 1rem; border: 2px solid var(--gold); transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+  .btn:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(201,162,39,0.3); }
+  .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+  /* Subtle one-time entrance for the hero — plays on load, not on scroll */
+  @keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .hero-inner { animation: hero-rise 0.9s cubic-bezier(.16,1,.3,1) both; }
 
   .trust-strip { background: var(--bg); padding: 26px 0; border-bottom: 1px solid var(--border); }
   .trust-strip .container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; font-size: 0.92rem; color: var(--gray); }
   .trust-strip strong { color: var(--navy); display: block; font-size: 1.15rem; }
 
-  section { padding: 72px 0; }
-  h2 { font-size: 1.85rem; text-align: center; margin-bottom: 12px; }
+  section { padding: 76px 0; }
+  h2 { font-size: 1.85rem; text-align: center; margin-bottom: 12px; letter-spacing: -0.2px; }
   .subhead { text-align: center; color: var(--gray); max-width: 640px; margin: 0 auto 44px; }
   .eyebrow-label { display: block; text-align: center; color: var(--gold); font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
 
   .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-  .card { border: 1px solid var(--border); border-radius: 10px; padding: 28px; background: #fff; }
+  .card { border: 1px solid var(--border); border-radius: 14px; padding: 28px; background: #fff; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(11,31,58,0.1); border-color: rgba(201,162,39,0.35); }
   .card .badge { display: inline-block; background: var(--bg); color: var(--navy-light); font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
   .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
   .card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 14px; }
   .card .cta-link { font-weight: 600; color: var(--navy-light); text-decoration: none; font-size: 0.9rem; }
   .card .cta-link:hover { text-decoration: underline; }
 
+  /* Stagger the product cards as they reveal */
+  .products .card:nth-child(1) { transition-delay: 0s; }
+  .products .card:nth-child(2) { transition-delay: 0.12s; }
+  .products .card:nth-child(3) { transition-delay: 0.24s; }
+
   /* CÓMO FUNCIONA — centerpiece of trust */
   .how { background: var(--bg); }
   .how-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: start; margin-top: 44px; }
-  .how-photo { position: sticky; top: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(11,31,58,0.18); }
+  .how-photo { position: sticky; top: 90px; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 30px rgba(11,31,58,0.18); }
   .how-photo img { width: 100%; height: 460px; object-fit: cover; }
   .how-photo-caption { background: var(--navy); color: #d7dde6; font-size: 0.82rem; padding: 12px 18px; }
 
-  .mechanism-box { background: #fff; border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 24px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(11,31,58,0.06); }
+  .mechanism-box { background: #fff; border-left: 4px solid var(--gold); border-radius: 10px; padding: 22px 24px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(11,31,58,0.06); }
   .mechanism-box h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--navy); }
   .mechanism-box p { color: var(--gray); font-size: 0.95rem; }
   .mechanism-box strong { color: var(--navy); }
@@ -91,8 +103,58 @@
   .tstep.emphasis .num { background: var(--gold); color: var(--navy-deep); }
   .tstep h4 { font-size: 1.02rem; margin-bottom: 5px; }
   .tstep p { color: var(--gray); font-size: 0.92rem; }
-  .tstep.emphasis { background: #fff; border-radius: 8px; padding: 16px 18px; margin-left: -18px; box-shadow: 0 2px 10px rgba(11,31,58,0.08); }
+  .tstep.emphasis { background: #fff; border-radius: 10px; padding: 16px 18px; margin-left: -18px; box-shadow: 0 2px 10px rgba(11,31,58,0.08); }
   .tstep.emphasis .num { left: -26px; }
+
+  /* Stagger the timeline steps as they reveal */
+  .steps-timeline .tstep:nth-child(1) { transition-delay: 0s; }
+  .steps-timeline .tstep:nth-child(2) { transition-delay: 0.08s; }
+  .steps-timeline .tstep:nth-child(3) { transition-delay: 0.16s; }
+  .steps-timeline .tstep:nth-child(4) { transition-delay: 0.24s; }
+  .steps-timeline .tstep:nth-child(5) { transition-delay: 0.32s; }
+
+  /* ===== LC FLOW DIAGRAM — the "10-second video" ===== */
+  .lc-diagram-wrap { margin: 6px 0 46px; }
+  .lc-diagram-intro { text-align: center; color: var(--navy-light); font-weight: 600; font-size: 0.95rem; margin-bottom: 18px; }
+  .lc-diagram { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 40px 22px 28px; background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 26px rgba(11,31,58,0.08); }
+  .lc-track { position: absolute; left: 12.5%; right: 12.5%; top: 55px; height: 3px; background: var(--border); border-radius: 3px; }
+  .lc-pulse { position: absolute; top: -4px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(201,162,39,0.22), 0 0 14px rgba(201,162,39,0.85); opacity: 0; animation: lc-pulse-move 8s linear infinite; animation-play-state: paused; }
+  .lc-diagram.in-view .lc-pulse { animation-play-state: running; }
+  @keyframes lc-pulse-move {
+    0%   { left: 0%; opacity: 0; }
+    4%   { opacity: 1; }
+    96%  { opacity: 1; }
+    100% { left: calc(100% - 11px); opacity: 0; }
+  }
+
+  .lc-node { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; z-index: 1; }
+  .lc-icon { width: 58px; height: 58px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--navy-light); transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease; }
+  .lc-icon svg { width: 26px; height: 26px; }
+  .lc-node-step { display: block; font-weight: 700; color: var(--navy); font-size: 0.76rem; letter-spacing: 0.4px; margin-bottom: 2px; }
+  .lc-node-label { font-size: 0.83rem; color: var(--gray); line-height: 1.35; max-width: 150px; }
+
+  @keyframes lc-glow {
+    0%, 78%, 100% { background: var(--bg); border-color: var(--border); color: var(--navy-light); box-shadow: none; transform: scale(1); }
+    12%, 32% { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); box-shadow: 0 0 0 8px rgba(201,162,39,0.16); transform: scale(1.08); }
+  }
+  .lc-diagram.in-view .lc-node:nth-child(2) .lc-icon { animation: lc-glow 8s ease-in-out infinite; animation-delay: -0.3s; }
+  .lc-diagram.in-view .lc-node:nth-child(3) .lc-icon { animation: lc-glow 8s ease-in-out infinite; animation-delay: 1.9s; }
+  .lc-diagram.in-view .lc-node:nth-child(4) .lc-icon { animation: lc-glow 8s ease-in-out infinite; animation-delay: 4.1s; }
+  .lc-diagram.in-view .lc-node:nth-child(5) .lc-icon { animation: lc-glow 8s ease-in-out infinite; animation-delay: 6.3s; }
+
+  .lc-diagram-caption { text-align: center; color: var(--gray); font-size: 0.88rem; margin-top: 16px; font-style: italic; }
+
+  @media (max-width: 760px) {
+    .lc-diagram { grid-template-columns: 1fr; gap: 30px; padding: 30px 22px; }
+    .lc-track { left: 50%; right: auto; top: 12%; bottom: 12%; height: auto; width: 3px; transform: translateX(-50%); }
+    .lc-pulse { left: 50%; top: 0; margin-left: -5.5px; animation-name: lc-pulse-move-vertical; }
+    @keyframes lc-pulse-move-vertical {
+      0%   { top: 0%; opacity: 0; }
+      4%   { opacity: 1; }
+      96%  { opacity: 1; }
+      100% { top: calc(100% - 11px); opacity: 0; }
+    }
+  }
 
   @media (max-width: 860px) {
     .how-grid { grid-template-columns: 1fr; }
@@ -112,14 +174,14 @@
   }
   .who h2 { color: #fff; }
   .who .subhead { color: #c7d0dd; }
-  .who-card { max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 36px 40px; backdrop-filter: blur(2px); }
+  .who-card { max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 36px 40px; backdrop-filter: blur(2px); }
   .who-top { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
   .who-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); font-weight: 700; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
   .who-name { font-size: 1.25rem; font-weight: 700; }
   .who-role { color: var(--gold-light); font-size: 0.92rem; font-weight: 600; }
   .who-card p { color: #d7dde6; font-size: 0.98rem; margin-bottom: 14px; }
   .who-contact { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; font-size: 0.92rem; }
-  .who-contact a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; }
+  .who-contact a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; transition: border-color 0.2s ease, color 0.2s ease; }
   .who-contact a:hover { border-color: var(--gold); color: var(--gold-light); }
 
   .cta-section { background: var(--navy); color: #fff; text-align: center; }
@@ -134,8 +196,24 @@
   .footer-col p, .footer-col a { display: block; margin-bottom: 6px; }
   .footer-bottom { text-align: center; color: #5f6b80; font-size: 0.8rem; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
 
+  /* ===== Scroll-reveal (progressive enhancement, real content is visible without JS) ===== */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.16,1,.3,1); }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+    .hero-inner { animation: none !important; }
+    .lc-pulse { display: none !important; }
+    .lc-icon { animation: none !important; }
+    .card:hover, .btn:hover, .btn-outline:hover { transform: none !important; }
+  }
+
   @media (max-width: 600px) {
-    nav { display: none; }
+    section { padding: 56px 0; }
+    h2 { font-size: 1.55rem; }
+    header .container { justify-content: center; text-align: center; }
+    nav { width: 100%; display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; }
+    nav a { margin-left: 0; font-size: 0.85rem; }
     .hero { padding: 64px 0 52px; text-align: center; }
     .hero-inner { max-width: 100%; }
     .hero p { margin-left: auto; margin-right: auto; }
@@ -188,22 +266,22 @@
 
 <section id="productos">
   <div class="container">
-    <h2>Nuestros productos</h2>
-    <p class="subhead">Tres líneas de commodities con comisión sobre operación cerrada — usted negocia directo con el fabricante, nosotros garantizamos el proceso.</p>
+    <h2 class="reveal">Nuestros productos</h2>
+    <p class="subhead reveal">Tres líneas de commodities con comisión sobre operación cerrada — usted negocia directo con el fabricante, nosotros garantizamos el proceso.</p>
     <div class="products">
-      <div class="card">
+      <div class="card reveal">
         <span class="badge">Producto ancla</span>
         <h3>Pintura Industrial</h3>
         <p>Pintura anticorrosiva e industrial directo de fábrica en Foshan, China. Precios FOB desde $2.00/kg, MOQ desde 10 kg. Ideal para constructoras, astilleros y mantenimiento industrial.</p>
         <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Pintura Industrial">Pedir cotización FOB →</a>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <span class="badge">Contrato recurrente</span>
         <h3>Aceite de Palma</h3>
         <p>CPO y RBD certificado RSPO para industria alimentaria, jabonería, cosmética y biodiesel. Contratos de suministro mensual con trazabilidad de origen.</p>
         <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Aceite de Palma">Pedir cotización FOB →</a>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <span class="badge">Operación de volumen</span>
         <h3>Fertilizantes &amp; Acero Estructural</h3>
         <p>Insumos para agroindustria y grandes constructoras. Volúmenes altos, precios competitivos, logística coordinada hasta puerto de destino.</p>
@@ -215,9 +293,40 @@
 
 <section class="how" id="como-funciona">
   <div class="container">
-    <span class="eyebrow-label">El mecanismo, no promesas</span>
-    <h2>Por qué es imposible que le quedemos mal</h2>
-    <p class="subhead">En esta industria abundan los estafadores. Por eso el proceso no depende de confiar en nuestra palabra — depende de un instrumento bancario internacional que ya existe para esto.</p>
+    <span class="eyebrow-label reveal">El mecanismo, no promesas</span>
+    <h2 class="reveal">Por qué es imposible que le quedemos mal</h2>
+    <p class="subhead reveal">En esta industria abundan los estafadores. Por eso el proceso no depende de confiar en nuestra palabra — depende de un instrumento bancario internacional que ya existe para esto. Así se mueve el dinero, paso a paso:</p>
+
+    <div class="lc-diagram-wrap reveal">
+      <div class="lc-diagram">
+        <div class="lc-track"><div class="lc-pulse"></div></div>
+        <div class="lc-node">
+          <div class="lc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.2"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2M10 21v-4h4v4"/></svg>
+          </div>
+          <div class="lc-node-label"><span class="lc-node-step">1</span>Comprador ordena</div>
+        </div>
+        <div class="lc-node">
+          <div class="lc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M4 10v9M9 10v9M15 10v9M20 10v9"/><path d="M2 21h20"/></svg>
+          </div>
+          <div class="lc-node-label"><span class="lc-node-step">2</span>Su banco emite la Carta de Crédito</div>
+        </div>
+        <div class="lc-node">
+          <div class="lc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14V7h4l2-2h2l2 2h4v7"/><path d="M3 14l1.5 5h15L21 14"/><path d="M9 17.3l1.6 1.6L14 15.3" stroke-width="2"/></svg>
+          </div>
+          <div class="lc-node-label"><span class="lc-node-step">3</span>Embarque verificado con documentos</div>
+        </div>
+        <div class="lc-node">
+          <div class="lc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.3 9.4c0-1.2 1.2-2 2.7-2s2.7.8 2.7 2-1.2 1.6-2.7 1.8-2.7.8-2.7 2 1.2 2 2.7 2 2.7-.8 2.7-2"/></svg>
+          </div>
+          <div class="lc-node-label"><span class="lc-node-step">4</span>El banco paga (comisión MAGNEX incluida)</div>
+        </div>
+      </div>
+      <p class="lc-diagram-caption">El dinero se mueve solo cuando el paso anterior queda comprobado — nunca antes.</p>
+    </div>
 
     <div class="how-grid">
       <div class="how-photo">
@@ -226,33 +335,33 @@
       </div>
 
       <div>
-        <div class="mechanism-box">
+        <div class="mechanism-box reveal">
           <h3>La garantía real: usted nunca nos paga a nosotros</h3>
           <p>Su banco emite una <strong>Carta de Crédito irrevocable bajo las reglas UCP 600</strong> de la Cámara de Comercio Internacional. El dinero queda respaldado por su propio banco, no por MAGNEX. El proveedor solo cobra cuando presenta los documentos de embarque (bill of lading, factura, certificado de origen) que prueban que la mercancía ya salió hacia su puerto. <strong>Si no hay embarque verificado, no hay pago.</strong> Así de simple.</p>
         </div>
 
         <div class="steps-timeline">
-          <div class="tstep">
+          <div class="tstep reveal">
             <div class="num">1</div>
             <h4>Consulta</h4>
             <p>Nos escribe con el volumen y la frecuencia que necesita.</p>
           </div>
-          <div class="tstep">
+          <div class="tstep reveal">
             <div class="num">2</div>
             <h4>NCNDA</h4>
             <p>Firmamos acuerdo de confidencialidad antes de revelar el proveedor de fábrica.</p>
           </div>
-          <div class="tstep">
+          <div class="tstep reveal">
             <div class="num">3</div>
             <h4>Cotización FOB</h4>
             <p>Le enviamos precio de fábrica más comisión MAGNEX, en 24–48 horas.</p>
           </div>
-          <div class="tstep emphasis">
+          <div class="tstep emphasis reveal">
             <div class="num">4</div>
             <h4>Su banco abre la Carta de Crédito irrevocable (UCP 600)</h4>
             <p>Usted no nos transfiere nada a nosotros. El instrumento queda en manos de su propio banco.</p>
           </div>
-          <div class="tstep emphasis">
+          <div class="tstep emphasis reveal">
             <div class="num">5</div>
             <h4>Embarque verificado → el banco paga</h4>
             <p>Solo cuando el proveedor demuestra con documentos que el producto embarcó, el banco libera el pago. MAGNEX cobra su comisión dentro de esa misma liquidación — nunca antes.</p>
@@ -265,10 +374,10 @@
 
 <section class="who" id="quienes-somos">
   <div class="container">
-    <span class="eyebrow-label">Quién está detrás</span>
-    <h2>No es un "equipo" anónimo — es una persona con nombre y contacto directo</h2>
-    <p class="subhead">Cuando escribe a MAGNEX, le responde el fundador, no un departamento genérico.</p>
-    <div class="who-card">
+    <span class="eyebrow-label reveal">Quién está detrás</span>
+    <h2 class="reveal">No es un "equipo" anónimo — es una persona con nombre y contacto directo</h2>
+    <p class="subhead reveal">Cuando escribe a MAGNEX, le responde el fundador, no un departamento genérico.</p>
+    <div class="who-card reveal">
       <div class="who-top">
         <div class="who-avatar">MG</div>
         <div>
@@ -287,8 +396,8 @@
 
 <section class="cta-section">
   <div class="container">
-    <h2>¿Listo para cotizar?</h2>
-    <p>Respondemos consultas de compradores calificados en 24–48 horas.</p>
+    <h2 class="reveal">¿Listo para cotizar?</h2>
+    <p class="reveal">Respondemos consultas de compradores calificados en 24–48 horas.</p>
     <a class="btn" href="mailto:mgonzalez@magnexinternational.com">Escribir por correo</a>
     <a class="btn-outline" href="https://wa.me/50765933059">Escribir por WhatsApp</a>
   </div>
@@ -316,6 +425,39 @@
     MAGNEX International — Connecting Markets. Delivering Trust.
   </div>
 </footer>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  var diagram = document.querySelector('.lc-diagram');
+  if (diagram && 'IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.35 });
+    io2.observe(diagram);
+  } else if (diagram) {
+    diagram.classList.add('in-view');
+  }
+})();
+</script>
 
 </body>
 </html>
