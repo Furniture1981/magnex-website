@@ -307,41 +307,6 @@
     .how-photo img { height: 260px; }
   }
 
-  /* TORRE DE CONTROL — seguimiento por hitos documentados */
-  .tower-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: start; margin-top: 44px; }
-  .tower-board { background: var(--navy); color: #fff; border-radius: 16px; padding: 26px 26px 22px; box-shadow: 0 14px 32px rgba(11,31,58,0.22); }
-  .tower-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.12); }
-  .tower-op { font-weight: 700; font-size: 1rem; }
-  .tower-route { color: #c7d0dd; font-size: 0.85rem; }
-  .tower-tag { background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.5); color: var(--gold-light); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
-  .tower-progress { height: 6px; background: rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; margin-bottom: 20px; }
-  .tower-progress span { display: block; height: 100%; width: 0; background: var(--gold); border-radius: 6px; transition: width 1.4s cubic-bezier(.16,1,.3,1) 0.3s; }
-  .tower-board.visible .tower-progress span { width: 50%; }
-  .tower-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .tower-list li { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: start; font-size: 0.9rem; }
-  .tower-dot { width: 14px; height: 14px; margin-top: 4px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.35); }
-  .tower-list .done .tower-dot { background: var(--gold); border-color: var(--gold); }
-  .tower-list .active .tower-dot { border-color: var(--gold); background: var(--navy); box-shadow: 0 0 0 0 rgba(201,162,39,0.6); animation: tower-ping 2s ease-out infinite; }
-  @keyframes tower-ping { 0% { box-shadow: 0 0 0 0 rgba(201,162,39,0.6); } 100% { box-shadow: 0 0 0 10px rgba(201,162,39,0); } }
-  .tower-step { font-weight: 600; }
-  .tower-list .pending .tower-step { color: #9aa5b5; font-weight: 500; }
-  .tower-doc { display: block; color: #9aa5b5; font-size: 0.8rem; font-weight: 400; }
-  .tower-state { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #9aa5b5; padding-top: 3px; }
-  .tower-list .done .tower-state { color: var(--gold-light); }
-  .tower-list .active .tower-state { color: #fff; }
-  .tower-note { color: #9aa5b5; font-size: 0.78rem; margin-top: 18px; font-style: italic; }
-
-  .tower-features { display: flex; flex-direction: column; gap: 18px; }
-  .tower-feature { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: #fff; }
-  .tower-feature h3 { font-size: 1.02rem; margin-bottom: 6px; }
-  .tower-feature p { color: var(--gray); font-size: 0.92rem; }
-  .tower-ports { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 6px 18px; margin-top: 10px; font-size: 0.86rem; color: var(--gray); }
-  .tower-ports strong { color: var(--navy); }
-
-  @media (max-width: 860px) {
-    .tower-grid { grid-template-columns: 1fr; }
-  }
-
   /* PREGUNTAS FRECUENTES */
   .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
   .faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; }
@@ -391,8 +356,6 @@
     .hero-inner { animation: none !important; }
     .lc-pulse { display: none !important; }
     .lc-icon { animation: none !important; }
-    .tower-list .active .tower-dot { animation: none !important; }
-    .tower-progress span { transition: none !important; }
     .card:hover, .btn:hover, .btn-outline:hover { transform: none !important; }
   }
 
@@ -426,7 +389,6 @@
     <nav>
       <a href="#productos">Productos</a>
       <a href="#como-funciona">Cómo funciona</a>
-      <a href="#torre-de-control">Torre de control</a>
       <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
       <a href="#quienes-somos">Quién está detrás</a>
       <a href="#contacto">Contacto</a>
@@ -559,61 +521,6 @@
             <div class="num">5</div>
             <h4>Embarque verificado → el banco paga</h4>
             <p>Solo cuando el proveedor demuestra con documentos que el producto embarcó, el banco libera el pago. MAGNEX cobra su comisión dentro de esa misma liquidación — nunca antes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="torre-de-control">
-  <div class="container">
-    <span class="eyebrow-label reveal">Torre de control</span>
-    <h2 class="reveal">Su embarque, visible en cada hito — de la fábrica a su puerto</h2>
-    <p class="subhead reveal">Una sola torre de control coordina fábrica, naviera, bancos y agente de aduana en los cinco mercados. En cada cambio de estado usted recibe un reporte por WhatsApp o correo, con el documento que lo respalda.</p>
-
-    <div class="tower-grid">
-      <div class="tower-board reveal" aria-label="Ejemplo ilustrativo de seguimiento de una operación">
-        <div class="tower-head">
-          <div>
-            <div class="tower-op">Operación MX-0000 · Pintura anticorrosiva</div>
-            <div class="tower-route">Foshan, China → Puerto de Balboa, Panamá</div>
-          </div>
-          <span class="tower-tag">Ejemplo ilustrativo</span>
-        </div>
-        <div class="tower-progress" aria-hidden="true"><span></span></div>
-        <ol class="tower-list">
-          <li class="done"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Carta de crédito confirmada<span class="tower-doc">Respaldo: aviso SWIFT MT700 de su banco</span></span><span class="tower-state">Listo</span></li>
-          <li class="done"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Producción en fábrica<span class="tower-doc">Respaldo: orden confirmada + inspección pre-embarque (cuando aplica)</span></span><span class="tower-state">Listo</span></li>
-          <li class="active"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Carga y embarque<span class="tower-doc">Respaldo: Bill of Lading, factura comercial, certificado de origen</span></span><span class="tower-state">En curso</span></li>
-          <li class="pending"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Tránsito marítimo<span class="tower-doc">Respaldo: seguimiento de contenedor con la naviera</span></span><span class="tower-state">Pendiente</span></li>
-          <li class="pending"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Arribo a puerto destino<span class="tower-doc">Respaldo: aviso de llegada de la naviera</span></span><span class="tower-state">Pendiente</span></li>
-          <li class="pending"><span class="tower-dot" aria-hidden="true"></span><span class="tower-step">Nacionalización y entrega<span class="tower-doc">Coordinado con su agente de aduana</span></span><span class="tower-state">Pendiente</span></li>
-        </ol>
-        <p class="tower-note">Así se ve el reporte que recibe. Datos de ejemplo — cada operación real se reporta con sus propios documentos.</p>
-      </div>
-
-      <div class="tower-features">
-        <div class="tower-feature reveal">
-          <h3>Un hito, un documento</h3>
-          <p>Ningún estado se marca como cumplido sin el papel que lo prueba. Es el mismo estándar documental que exige su banco para liberar la carta de crédito.</p>
-        </div>
-        <div class="tower-feature reveal">
-          <h3>Un solo interlocutor, todo el trayecto</h3>
-          <p>No tiene que perseguir a la fábrica, la naviera y el banco por separado. MAGNEX consolida la información y le reporta en un solo canal.</p>
-        </div>
-        <div class="tower-feature reveal">
-          <h3>Aviso temprano de cualquier cambio</h3>
-          <p>Si la naviera reprograma o un documento requiere corrección, se le informa en cuanto lo sabemos — antes de que afecte su planificación.</p>
-        </div>
-        <div class="tower-feature reveal">
-          <h3>Cobertura en sus puertos de destino</h3>
-          <div class="tower-ports">
-            <span><strong>Panamá:</strong> Balboa · Colón</span>
-            <span><strong>Costa Rica:</strong> Limón · Caldera</span>
-            <span><strong>Colombia:</strong> Cartagena · Buenaventura</span>
-            <span><strong>Guatemala:</strong> Santo Tomás · Quetzal</span>
-            <span><strong>Rep. Dominicana:</strong> Caucedo · Haina</span>
           </div>
         </div>
       </div>
