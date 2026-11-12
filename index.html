@@ -96,14 +96,26 @@
     },
     {
       "@type": "Product",
-      "name": "Fertilizantes y Acero Estructural",
-      "description": "Fertilizantes para agroindustria y acero estructural para construcción y manufactura, importados directo de fábrica en Asia con logística coordinada hasta puerto de destino en Panamá, Costa Rica, Colombia, Guatemala y República Dominicana.",
+      "name": "Fertilizantes: Urea 46%, DAP y NPK",
+      "description": "Urea 46% granulada y perlada, DAP, NPK y sulfato de amonio para agroindustria, distribuidores agrícolas y cooperativas, con precio CFR/CIF puesto en el puerto del comprador en Panamá, Costa Rica, Colombia, Guatemala y República Dominicana.",
       "brand": {"@type": "Brand", "name": "MAGNEX International"},
-      "category": "Fertilizantes / acero estructural",
+      "category": "Fertilizantes agrícolas",
+      "url": "https://magnexinternational.com/#productos",
+      "additionalProperty": [
+        {"@type": "PropertyValue", "name": "Volumen", "value": "Desde contenedor o carga a granel, según volumen"},
+        {"@type": "PropertyValue", "name": "Entrega", "value": "CFR/CIF puerto del comprador"}
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Acero Estructural y de Construcción",
+      "description": "Varilla corrugada, vigas, perfiles, láminas y bobinas laminadas en caliente (HRC) para constructoras y manufactura, con precio CFR/CIF puesto en el puerto del comprador y certificado de calidad por lote.",
+      "brand": {"@type": "Brand", "name": "MAGNEX International"},
+      "category": "Acero estructural",
       "url": "https://magnexinternational.com/#productos",
       "additionalProperty": [
         {"@type": "PropertyValue", "name": "Volumen", "value": "Operaciones de alto volumen"},
-        {"@type": "PropertyValue", "name": "Precio", "value": "Cotización FOB personalizada según volumen y contrato"}
+        {"@type": "PropertyValue", "name": "Entrega", "value": "CFR/CIF puerto del comprador"}
       ]
     },
     {
@@ -130,7 +142,7 @@
           "name": "¿MAGNEX también vende aceite de palma y fertilizantes, o solo pintura industrial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Los tres: pintura industrial anticorrosiva (producto ancla), aceite de palma CPO y RBD certificado RSPO, y fertilizantes agrícolas / acero estructural. Mismo mecanismo de compra con carta de crédito para los tres productos."
+            "text": "Cuatro líneas, cada una con su propia cotización: pintura industrial anticorrosiva (producto ancla), aceite de palma CPO y RBD certificado RSPO, fertilizantes (urea 46%, DAP, NPK) y acero estructural. Precio puesto en su puerto y carta de crédito para operaciones grandes."
           }
         },
         {
@@ -138,7 +150,7 @@
           "name": "¿Cuál es el volumen mínimo (MOQ) para comprar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pintura industrial: desde 10 kg según proveedor. Aceite de palma: desde 1 contenedor FCL (~24 toneladas). Fertilizantes y acero: volúmenes altos, cotización FOB según proyecto."
+            "text": "Pintura industrial: desde 10 kg según especificación. Aceite de palma: desde 1 contenedor FCL (~24 toneladas). Fertilizantes y acero: volúmenes altos, cotización según proyecto."
           }
         }
       ]
@@ -225,6 +237,52 @@
   .products .card:nth-child(1) { transition-delay: 0s; }
   .products .card:nth-child(2) { transition-delay: 0.12s; }
   .products .card:nth-child(3) { transition-delay: 0.24s; }
+  .products .card:nth-child(4) { transition-delay: 0.36s; }
+  .products-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .products-4 .card { display: flex; flex-direction: column; }
+  .products-4 .card p { flex: 1; }
+  .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 4px; }
+  .btn-sm { padding: 10px 22px; font-size: 0.95rem; }
+  .btn-wa { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: #128c4a; text-decoration: none; font-size: 0.92rem; }
+  .btn-wa:hover { text-decoration: underline; }
+  .card .mail-link { font-size: 0.85rem; color: var(--gray); text-decoration: none; }
+  .card .mail-link:hover { text-decoration: underline; }
+
+  /* GARANTÍAS / BLOQUE DE CONFIANZA */
+  .guarantees { background: var(--bg); padding: 60px 0; }
+  .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .guarantee { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 12px; padding: 22px 22px 20px; }
+  .guarantee h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .guarantee p { color: var(--gray); font-size: 0.92rem; }
+
+  /* FORMULARIO DE COTIZACIÓN */
+  .quote-section { background: var(--navy); color: #fff; }
+  .quote-section h2 { color: #fff; }
+  .quote-section .subhead { color: #c7d0dd; margin-bottom: 32px; }
+  .quote-card { max-width: 760px; margin: 0 auto; background: #fff; color: var(--navy); border-radius: 16px; padding: 32px; box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
+  .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
+  .quote-grid .full { grid-column: 1 / -1; }
+  .field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--navy); }
+  .field label .opt { font-weight: 400; color: var(--gray); }
+  .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 1rem; color: var(--navy); background: #fff; border: 1px solid #cfd5de; border-radius: 8px; padding: 11px 12px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .field textarea { min-height: 96px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,39,0.25); }
+  .hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+  .quote-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 22px; }
+  .quote-foot small { color: var(--gray); font-size: 0.82rem; max-width: 380px; }
+  .quote-card button.btn { cursor: pointer; font-family: inherit; }
+  .quote-card button.btn[disabled] { opacity: 0.7; cursor: wait; transform: none; }
+  .form-status { text-align: center; padding: 10px 4px; }
+  .form-status h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .form-status p { color: var(--gray); margin-bottom: 18px; }
+  .form-status .status-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .form-status .btn-outline-dark { display: inline-block; border: 2px solid var(--navy); color: var(--navy); font-weight: 600; padding: 12px 26px; border-radius: 8px; text-decoration: none; }
+  .form-error { color: #b42318; font-size: 0.88rem; margin-top: 12px; display: none; }
+  .quote-alt { text-align: center; margin-top: 22px; color: #c7d0dd; font-size: 0.92rem; }
+  .quote-alt a { color: #fff; }
+  [hidden] { display: none !important; }
+  section[id] { scroll-margin-top: 80px; }
+  @media (max-width: 600px) { section[id] { scroll-margin-top: 130px; } }
 
   /* CÓMO FUNCIONA — centerpiece of trust */
   .how { background: var(--bg); }
@@ -370,6 +428,10 @@
     .btn-outline { margin: 0; }
     .who-card { padding: 28px 22px; }
     .who-top { flex-direction: column; text-align: center; }
+    .quote-card { padding: 22px 18px; }
+    .quote-grid { grid-template-columns: 1fr; }
+    .quote-foot { flex-direction: column; align-items: stretch; text-align: center; }
+    .quote-foot .btn { width: 100%; }
   }
 </style>
 </head>
@@ -389,7 +451,7 @@
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
       <a href="#quienes-somos">Quiénes somos</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#cotizar">Cotizar</a>
     </nav>
   </div>
 </header>
@@ -401,8 +463,8 @@
       <h1>Comprar pintura industrial y commodities directo de fábrica, con carta de crédito irrevocable</h1>
       <p>MAGNEX International conecta empresas de Panamá, Costa Rica, Colombia, Guatemala y República Dominicana con fabricantes verificados en Asia. Toda operación se protege con carta de crédito irrevocable UCP 600: el dinero nunca pasa por nuestras manos, y el banco solo paga cuando el producto embarca.</p>
       <div class="hero-ctas">
-        <a class="btn" href="mailto:mgonzalez@magnexinternational.com">Solicitar cotización FOB</a>
-        <a class="btn-outline" href="https://wa.me/50765933059">WhatsApp directo</a>
+        <a class="btn" href="#cotizar">Solicitar cotización</a>
+        <a class="btn-outline" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20(web)" data-wa="hero">WhatsApp directo</a>
       </div>
     </div>
   </div>
@@ -421,24 +483,72 @@
   <div class="container">
     <h2 class="reveal">Nuestros productos</h2>
     <p class="subhead reveal">Cuatro líneas de commodities industriales con precio puesto en su puerto. MAGNEX gestiona el abastecimiento, la calidad, la logística y el pago de principio a fin.</p>
-    <div class="products">
+    <div class="products products-4">
       <div class="card reveal">
         <span class="badge">Producto ancla</span>
         <h3>Pintura Industrial Anticorrosiva</h3>
-        <p>Sistemas anticorrosivos ISO 12944: primer epóxico rico en zinc, intermedio MIO, poliuretano alifático y epóxico alquitrán-hulla. Precio CFR/CIF puesto en su puerto, ficha técnica y hoja de seguridad incluidas, pedidos desde 1 tonelada. Ideal para constructoras, astilleros y mantenimiento industrial en Panamá, Costa Rica, Colombia, Guatemala y República Dominicana.</p>
-        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotizaci%C3%B3n%20Pintura%20Industrial">Pedir cotización →</a>
+        <p>Sistemas anticorrosivos ISO 12944: primer epóxico rico en zinc, intermedio MIO, poliuretano alifático y epóxico alquitrán-hulla. Precio CFR/CIF puesto en su puerto, con ficha técnica y hoja de seguridad. Para constructoras, astilleros y mantenimiento industrial.</p>
+        <div class="card-actions">
+          <a class="btn btn-sm" href="#cotizar" data-producto="Pintura industrial">Cotizar</a>
+          <a class="btn-wa" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20cotizar%20pintura%20industrial%20(web)" data-wa="Pintura industrial">WhatsApp →</a>
+          <a class="mail-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotizaci%C3%B3n%20Pintura%20Industrial">Correo</a>
+        </div>
       </div>
       <div class="card reveal">
         <span class="badge">Contrato recurrente</span>
         <h3>Aceite de Palma CPO y RBD</h3>
-        <p>Importador de aceite de palma CPO y RBD certificado RSPO para Centroamérica, con destino a industria alimentaria, jabonería, cosmética y biodiesel. Contratos de suministro mensual desde 1 contenedor FCL, con trazabilidad de origen.</p>
-        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Aceite de Palma">Pedir cotización FOB →</a>
+        <p>Aceite de palma crudo (CPO) y refinado (RBD), con certificación RSPO disponible, para industria alimentaria, jabonería, cosmética y biodiésel. Contratos de suministro mensual desde 1 contenedor FCL, con trazabilidad de origen.</p>
+        <div class="card-actions">
+          <a class="btn btn-sm" href="#cotizar" data-producto="Aceite de palma">Cotizar</a>
+          <a class="btn-wa" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20cotizar%20aceite%20de%20palma%20(web)" data-wa="Aceite de palma">WhatsApp →</a>
+          <a class="mail-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotizaci%C3%B3n%20Aceite%20de%20Palma">Correo</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <span class="badge">Agroindustria</span>
+        <h3>Fertilizantes: Urea 46%, DAP y NPK</h3>
+        <p>Urea 46% granulada y perlada, DAP, NPK y sulfato de amonio para agroindustria, distribuidores agrícolas y cooperativas. Precio CFR/CIF puesto en su puerto, por contenedor o a granel según volumen.</p>
+        <div class="card-actions">
+          <a class="btn btn-sm" href="#cotizar" data-producto="Fertilizantes (urea 46%)">Cotizar</a>
+          <a class="btn-wa" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20cotizar%20fertilizantes%20(urea%2046%25)%20(web)" data-wa="Fertilizantes (urea 46%)">WhatsApp →</a>
+          <a class="mail-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotizaci%C3%B3n%20Fertilizantes%20(Urea%2046%25)">Correo</a>
+        </div>
       </div>
       <div class="card reveal">
         <span class="badge">Operación de volumen</span>
-        <h3>Fertilizantes &amp; Acero Estructural</h3>
-        <p>Importación de fertilizantes agrícolas y acero estructural para agroindustria y grandes constructoras en Colombia, Guatemala, República Dominicana, Costa Rica y Panamá. Volúmenes altos, precios FOB competitivos, logística coordinada hasta puerto de destino.</p>
-        <a class="cta-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotización Fertilizantes y Acero">Pedir cotización FOB →</a>
+        <h3>Acero Estructural</h3>
+        <p>Varilla corrugada, vigas, perfiles, láminas y bobinas laminadas en caliente (HRC) para constructoras y manufactura. Precio CFR/CIF puesto en su puerto, con certificado de calidad por lote.</p>
+        <div class="card-actions">
+          <a class="btn btn-sm" href="#cotizar" data-producto="Acero">Cotizar</a>
+          <a class="btn-wa" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20cotizar%20acero%20(web)" data-wa="Acero">WhatsApp →</a>
+          <a class="mail-link" href="mailto:mgonzalez@magnexinternational.com?subject=Cotizaci%C3%B3n%20Acero">Correo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantees" id="garantias">
+  <div class="container">
+    <span class="eyebrow-label reveal">Cómo protegemos cada operación</span>
+    <h2 class="reveal">Lo que recibe con cada cotización</h2>
+    <p class="subhead reveal">Condiciones claras desde el primer contacto, para que compare precio y riesgo antes de comprometerse.</p>
+    <div class="guarantee-grid">
+      <div class="guarantee reveal">
+        <h3>Precio puesto en su puerto</h3>
+        <p>Cotizamos CFR o CIF al puerto de su país en Centroamérica, el Caribe y la región andina. Si usted maneja su propio flete, también cotizamos FOB.</p>
+      </div>
+      <div class="guarantee reveal">
+        <h3>Inspección independiente a solicitud</h3>
+        <p>Si lo requiere, coordinamos inspección de calidad y cantidad antes del embarque con SGS o Bureau Veritas. El costo depende del alcance y se acuerda en la cotización.</p>
+      </div>
+      <div class="guarantee reveal">
+        <h3>Ficha técnica y certificado de análisis</h3>
+        <p>Antes de cerrar le compartimos la ficha técnica del producto y el certificado de análisis (CoA) del lote, para que su equipo valide la especificación.</p>
+      </div>
+      <div class="guarantee reveal">
+        <h3>Carta de crédito en operaciones grandes</h3>
+        <p>Para contenedores y volúmenes mayores, el pago se respalda con carta de crédito irrevocable UCP 600 emitida por su banco. Los pedidos menores se acuerdan caso a caso.</p>
       </div>
     </div>
   </div>
@@ -507,8 +617,8 @@
           </div>
           <div class="tstep reveal">
             <div class="num">3</div>
-            <h4>Cotización FOB</h4>
-            <p>Le enviamos precio de fábrica más comisión MAGNEX, en 24–48 horas.</p>
+            <h4>Cotización a su puerto</h4>
+            <p>Le enviamos precio CFR/CIF puesto en su puerto (o FOB si usted maneja el flete), en 24–48 horas.</p>
           </div>
           <div class="tstep emphasis reveal">
             <div class="num">4</div>
@@ -541,11 +651,11 @@
       </div>
       <div class="faq-item reveal">
         <h3>¿MAGNEX también vende aceite de palma y fertilizantes, o solo pintura industrial?</h3>
-        <p>Los tres: pintura industrial anticorrosiva (producto ancla), aceite de palma CPO y RBD certificado RSPO, y fertilizantes agrícolas / acero estructural. Mismo mecanismo de compra con carta de crédito para los tres productos.</p>
+        <p>Cuatro líneas, cada una con su propia cotización: pintura industrial anticorrosiva (producto ancla), aceite de palma CPO y RBD certificado RSPO, fertilizantes (urea 46%, DAP, NPK) y acero estructural. Precio puesto en su puerto y carta de crédito para operaciones grandes.</p>
       </div>
       <div class="faq-item reveal">
         <h3>¿Cuál es el volumen mínimo (MOQ) para comprar?</h3>
-        <p>Pintura industrial: desde 10 kg según proveedor. Aceite de palma: desde 1 contenedor FCL (~24 toneladas). Fertilizantes y acero: volúmenes altos, cotización FOB según proyecto.</p>
+        <p>Pintura industrial: desde 10 kg según especificación. Aceite de palma: desde 1 contenedor FCL (~24 toneladas). Fertilizantes y acero: volúmenes altos, cotización según proyecto.</p>
       </div>
     </div>
   </div>
@@ -567,18 +677,107 @@
       <p>Con base en Ciudad de Panamá, MAGNEX International coordina cada operación de principio a fin: calificación del comprador, negociación FOB, estructuración del FCO y seguimiento hasta el embarque. Un mismo interlocutor para todo el proceso — respuestas rápidas, decisiones sin trámites innecesarios.</p>
       <div class="who-contact">
         <a href="mailto:mgonzalez@magnexinternational.com">mgonzalez@magnexinternational.com</a>
-        <a href="https://wa.me/50765933059">WhatsApp +507 6593-3059</a>
+        <a href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20informaci%C3%B3n%20(web)">WhatsApp +507 6593-3059</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-section">
+<section class="quote-section" id="cotizar">
   <div class="container">
-    <h2 class="reveal">¿Listo para cotizar?</h2>
-    <p class="reveal">Respondemos consultas de compradores calificados en 24–48 horas.</p>
-    <a class="btn" href="mailto:mgonzalez@magnexinternational.com">Escribir por correo</a>
-    <a class="btn-outline" href="https://wa.me/50765933059">Escribir por WhatsApp</a>
+    <span class="eyebrow-label">Solicitar cotización</span>
+    <h2>Solicite su cotización puesta en su puerto</h2>
+    <p class="subhead">Respondemos en 24–48 horas hábiles. Sus datos se manejan con confidencialidad y solo se usan para preparar su cotización.</p>
+    <div class="quote-card">
+      <form id="quote-form" novalidate>
+        <div class="quote-grid">
+          <div class="field full">
+            <label for="q-producto">Producto</label>
+            <select id="q-producto" name="producto" required>
+              <option value="">Seleccione un producto…</option>
+              <option value="Pintura industrial">Pintura industrial</option>
+              <option value="Aceite de palma">Aceite de palma (CPO / RBD)</option>
+              <option value="Fertilizantes (urea 46%)">Fertilizantes (urea 46%, DAP, NPK)</option>
+              <option value="Acero">Acero estructural</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="q-empresa">Empresa</label>
+            <input id="q-empresa" name="empresa" type="text" autocomplete="organization" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="q-nombre">Nombre</label>
+            <input id="q-nombre" name="nombre" type="text" autocomplete="name" required maxlength="100">
+          </div>
+          <div class="field">
+            <label for="q-cargo">Cargo <span class="opt">(opcional)</span></label>
+            <input id="q-cargo" name="cargo" type="text" autocomplete="organization-title" maxlength="100">
+          </div>
+          <div class="field">
+            <label for="q-pais">País</label>
+            <input id="q-pais" name="pais" type="text" autocomplete="country-name" required maxlength="60">
+          </div>
+          <div class="field full">
+            <label for="q-puerto">Puerto o ciudad de entrega</label>
+            <input id="q-puerto" name="puerto" type="text" required maxlength="120" placeholder="Ej.: Balboa, Cartagena, Puerto Quetzal">
+          </div>
+          <div class="field">
+            <label for="q-volumen">Volumen estimado</label>
+            <input id="q-volumen" name="volumen" type="text" required maxlength="120" placeholder="Ej.: 2 contenedores, 500 kg, 1,000 t">
+          </div>
+          <div class="field">
+            <label for="q-frecuencia">Frecuencia</label>
+            <select id="q-frecuencia" name="frecuencia" required>
+              <option value="">Seleccione…</option>
+              <option>Compra única</option>
+              <option>Mensual</option>
+              <option>Trimestral</option>
+              <option>Por proyecto</option>
+              <option>Aún no definida</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="q-correo">Correo corporativo</label>
+            <input id="q-correo" name="correo" type="email" autocomplete="email" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="q-whatsapp">WhatsApp <span class="opt">(con código de país)</span></label>
+            <input id="q-whatsapp" name="whatsapp" type="tel" autocomplete="tel" maxlength="30" placeholder="+507 6000-0000">
+          </div>
+          <div class="field full">
+            <label for="q-comentario">Comentario <span class="opt">(especificación, uso, plazo)</span></label>
+            <textarea id="q-comentario" name="comentario" maxlength="1500"></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="q-sitio">No llenar este campo</label>
+            <input id="q-sitio" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+        <div class="quote-foot">
+          <small>Al enviar acepta que MAGNEX lo contacte por correo o WhatsApp sobre esta solicitud.</small>
+          <button class="btn" type="submit">Solicitar cotización</button>
+        </div>
+        <p class="form-error" id="q-error" role="alert"></p>
+      </form>
+
+      <div class="form-status" id="q-gracias" hidden tabindex="-1">
+        <h3>¡Gracias! Recibimos su solicitud</h3>
+        <p>Nuestro equipo de operaciones la revisa y le responde en 24–48 horas hábiles. Si es urgente, escríbanos por WhatsApp.</p>
+        <div class="status-ctas">
+          <a class="btn" id="q-gracias-wa" href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20acabo%20de%20enviar%20una%20solicitud%20de%20cotizaci%C3%B3n%20desde%20la%20web">WhatsApp +507 6593-3059</a>
+        </div>
+      </div>
+
+      <div class="form-status" id="q-fallback" hidden tabindex="-1">
+        <h3>No pudimos enviar el formulario</h3>
+        <p>Puede ser un problema de conexión. Envíenos su solicitud por WhatsApp o correo; los datos que escribió ya van incluidos.</p>
+        <div class="status-ctas">
+          <a class="btn" id="q-fallback-wa" href="https://wa.me/50765933059">Enviar por WhatsApp</a>
+          <a class="btn-outline-dark" id="q-fallback-mail" href="mailto:mgonzalez@magnexinternational.com?subject=Solicitud%20de%20cotizaci%C3%B3n">Enviar por correo</a>
+        </div>
+      </div>
+    </div>
+    <p class="quote-alt">¿Prefiere escribir directo? <a href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20(web)">WhatsApp +507 6593-3059</a> · <a href="mailto:mgonzalez@magnexinternational.com?subject=Solicitud%20de%20cotizaci%C3%B3n">mgonzalez@magnexinternational.com</a></p>
   </div>
 </section>
 
@@ -592,7 +791,7 @@
     <div class="footer-col">
       <h5>Contacto</h5>
       <a href="mailto:mgonzalez@magnexinternational.com">mgonzalez@magnexinternational.com</a>
-      <a href="https://wa.me/50765933059">WhatsApp +507 6593-3059</a>
+      <a href="https://wa.me/50765933059?text=Hola%20MAGNEX%2C%20quiero%20informaci%C3%B3n%20(web)">WhatsApp +507 6593-3059</a>
     </div>
     <div class="footer-col">
       <h5>Mercados</h5>
@@ -635,6 +834,127 @@
   } else if (diagram) {
     diagram.classList.add('in-view');
   }
+})();
+</script>
+
+<script>
+/* Formulario de cotización → webhook de Make. Fallback a WhatsApp/correo si falla. */
+(function () {
+  var WEBHOOK = 'https://hook.us2.make.com/5l4ctm4t8w02heemwtwjt9yptt2yabhj';
+  var WA = '50765933059';
+  var MAIL = 'mgonzalez@magnexinternational.com';
+  var form = document.getElementById('quote-form');
+  if (!form) return;
+  var select = document.getElementById('q-producto');
+  var errorEl = document.getElementById('q-error');
+  var btn = form.querySelector('button[type="submit"]');
+  var thanks = document.getElementById('q-gracias');
+  var fallback = document.getElementById('q-fallback');
+
+  function track(name, params) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      var ev = { event: name };
+      for (var k in params) { if (params.hasOwnProperty(k)) ev[k] = params[k]; }
+      window.dataLayer.push(ev);
+      if (typeof window.gtag === 'function') window.gtag('event', name, params);
+      if (typeof window.fbq === 'function' && name === 'generate_lead') window.fbq('track', 'Lead', { content_name: params.producto });
+    } catch (e) {}
+  }
+
+  // Botones "Cotizar" de cada tarjeta: preseleccionan el producto.
+  document.querySelectorAll('[data-producto]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var p = a.getAttribute('data-producto');
+      if (select && p) select.value = p;
+      track('cotizar_click', { producto: p });
+      setTimeout(function () { try { document.getElementById('q-empresa').focus({ preventScroll: true }); } catch (e) {} }, 500);
+    });
+  });
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    a.addEventListener('click', function () { track('whatsapp_click', { producto: a.getAttribute('data-wa') }); });
+  });
+
+  function params() {
+    var out = {};
+    try {
+      var sp = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(function (k) {
+        if (sp.get(k)) out[k] = sp.get(k);
+      });
+    } catch (e) {}
+    return out;
+  }
+
+  function resumen(d) {
+    return 'Solicitud de cotización (web)\n' +
+      'Producto: ' + d.producto + '\nEmpresa: ' + d.empresa + '\nNombre: ' + d.nombre +
+      (d.cargo ? '\nCargo: ' + d.cargo : '') + '\nPaís: ' + d.pais + '\nPuerto/ciudad: ' + d.puerto +
+      '\nVolumen: ' + d.volumen + '\nFrecuencia: ' + d.frecuencia + '\nCorreo: ' + d.correo +
+      (d.whatsapp ? '\nWhatsApp: ' + d.whatsapp : '') + (d.comentario ? '\nComentario: ' + d.comentario : '');
+  }
+
+  function show(el) {
+    form.hidden = true;
+    el.hidden = false;
+    try { el.focus(); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+
+    var fd = new FormData(form);
+    var d = {};
+    fd.forEach(function (v, k) { d[k] = String(v).trim(); });
+
+    // Honeypot: si un bot lo llenó, simular éxito sin enviar.
+    if (d.sitio_web) { show(thanks); return; }
+    delete d.sitio_web;
+
+    if (!form.checkValidity()) {
+      var bad = form.querySelector(':invalid');
+      errorEl.textContent = 'Revise los campos obligatorios' + (bad && bad.labels && bad.labels[0] ? ': ' + bad.labels[0].textContent.replace(/\s*\(.*\)\s*/, '') : '') + '.';
+      errorEl.style.display = 'block';
+      if (bad) bad.focus();
+      return;
+    }
+
+    var extra = params();
+    d.origen = location.href.split('#')[0] + (document.referrer ? ' | ref: ' + document.referrer : '') +
+      (Object.keys(extra).length ? ' | ' + Object.keys(extra).map(function (k) { return k + '=' + extra[k]; }).join(' ') : '');
+    d.enviado = new Date().toISOString();
+
+    btn.disabled = true;
+    var oldText = btn.textContent;
+    btn.textContent = 'Enviando…';
+
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (res) {
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      track('generate_lead', { producto: d.producto, pais: d.pais, form: 'cotizacion_web' });
+      show(thanks);
+    }).catch(function () {
+      clearTimeout(timer);
+      var txt = resumen(d);
+      document.getElementById('q-fallback-wa').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(txt);
+      document.getElementById('q-fallback-mail').href = 'mailto:' + MAIL + '?subject=' +
+        encodeURIComponent('Solicitud de cotización - ' + d.producto + ' - ' + d.empresa) + '&body=' + encodeURIComponent(txt);
+      track('form_error', { producto: d.producto });
+      show(fallback);
+    }).then(function () {
+      btn.disabled = false;
+      btn.textContent = oldText;
+    });
+  });
 })();
 </script>
 
